@@ -706,7 +706,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fec29cd265d3547855d8a5ae4c274b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sensitivity: 20
+  bulletBasicPrefab: {fileID: 5683619577121104685, guid: 4562105e92390b045869d5bc5f281e11, type: 3}
+  bulletSpawnPoint: {fileID: 1862454494}
+  _sensitivity: 600
   _speed: 10
   _rotationSpeed: 5
   _turret: {fileID: 126039284}

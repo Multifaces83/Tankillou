@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ActorController : MonoBehaviour
 {
+    [SerializeField] protected GameObject bulletBasicPrefab;
+    [SerializeField] protected Transform bulletSpawnPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,10 @@ public class ActorController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    protected void Fire()
+    {
+        Instantiate(bulletBasicPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
     }
 }

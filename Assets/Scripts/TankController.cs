@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankController : MonoBehaviour
+public class TankController : ActorController
 {
     [SerializeField] private float _sensitivity = 1.0f;
     [SerializeField] private float _speed = 1.0f;
@@ -11,6 +11,8 @@ public class TankController : MonoBehaviour
     private float _horizontalInput;
     private float _verticalInput;
     private float _mouseX;
+    private float _fireRate = 0.5f;
+    private float _nextFire = 0.0f;
     void Start()
     {
     }
@@ -18,6 +20,18 @@ public class TankController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+        Move();
+
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _nextFire)
+        {
+            _nextFire = Time.time +  _fireRate;
+            Fire();
+        }
+     
+    }
+
+    private void Move(){
         _horizontalInput = Input.GetAxis("Horizontal");
         _verticalInput = Input.GetAxis("Vertical");
         _mouseX = Input.GetAxis("Mouse X");
